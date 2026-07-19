@@ -99,6 +99,6 @@ public class Main {
 
             totalSeconds--;
         }
-
+        System.out.println("\n");
     }
 }
