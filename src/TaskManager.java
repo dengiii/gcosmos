@@ -34,6 +34,7 @@ public class TaskManager {
         if (index >= 0 && index < tasks.size()) {
             Task task = this.tasks.get(index);
             task.setIsCompleted(true);
+            task.setIsTracked(false);
             System.out.println("Task '" + task.getTitle() + "' marked as completed!");
         } else {
             System.out.println("Invalid index!");
@@ -42,6 +43,19 @@ public class TaskManager {
 
     public void clearTasks() {
         tasks.clear();
+    }
+
+    public void trackTask(int index) {
+        for (Task t : tasks) {
+            t.setIsTracked(false);
+        }
+        if (index >= 0 && index < tasks.size()) {
+            Task task = this.tasks.get(index);
+            task.setIsTracked(true);
+            System.out.println("Task '" + task.getTitle() + "' is now being tracked!");
+        } else {
+            System.out.println("Invalid index!");
+        }
     }
 
     // helpers

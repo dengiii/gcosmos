@@ -2,12 +2,14 @@ public class Task {
     private String title;
     private String tag;
     private boolean isCompleted;
+    private boolean isTracked;
 
     // Constructor
     public Task(String title, String tag) {
         this.title = title;
         this.tag = tag;
         this.isCompleted = false;
+        this.isTracked = false;
     }
 
     // Getters
@@ -23,6 +25,10 @@ public class Task {
         return isCompleted;
     }
 
+    public boolean getIsTracked() {
+        return isTracked;
+    }
+
     // Setters
     public void setTitle(String title) {
         this.title = title;
@@ -36,10 +42,16 @@ public class Task {
         this.isCompleted = isCompleted;
     }
 
+    public void setIsTracked(boolean isTracked) {
+        this.isTracked = isTracked;
+    }
+
     // Methods
     @Override
     public String toString() {
-        String status = isCompleted ? "[x]" : "[]";
-        return status + " " + title + " (" + tag + ")";
+        String statusCompleted = isCompleted ? "[x]" : "";
+        String statusTrack = isTracked ? "[-]" : "";
+        return statusCompleted + " " + statusTrack + " " + title + " (" + tag + ")";
     }
+
 }
